@@ -3,6 +3,10 @@ from fastapi import HTTPException
 from app.schemas import WordResponse
 from app.routers import words
 
+from app.database import Base, engine
+
+Base.metadata.create_all(bind=engine)
+
 # Initialize FastAPI app
 app = FastAPI(
     title="Vocabulary Practice API",
